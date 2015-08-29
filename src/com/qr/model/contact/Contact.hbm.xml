@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 19, 2015 9:49:32 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.qr.model.contact.Contact" table="CONTACT">
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="native" />
+        </id>
+        <property name="firstName" type="java.lang.String">
+            <column name="FIRSTNAME" />
+        </property>
+        <property name="lastName" type="java.lang.String">
+            <column name="LASTNAME" />
+        </property>
+        <property name="email" type="java.lang.String">
+            <column name="EMAIL" />
+        </property>
+        <property name="gender" type="java.lang.String">
+            <column name="GENDER" />
+        </property>
+        <property name="phoneNumber" type="java.lang.String">
+            <column name="PHONENUMBER" />
+        </property>
+        <property name="status" type="boolean">
+            <column name="STATUS" />
+        </property>
+        <many-to-one name="account" class="com.qr.model.account.Account" fetch="join">
+            <column name="ACCOUNT_ID" />
+        </many-to-one>
+        <many-to-one name="address" class="com.qr.model.contact.Address"  fetch="join" cascade="save-update">
+            <column name="ADDRESS_ID" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>
